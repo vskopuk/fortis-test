@@ -1,6 +1,14 @@
+window.token = 'fake'
+
 func = ->
-  $.get '/phrases', (data) ->
-    $(document.body).append(data + '<br/>')
+  $.ajax(
+    url: "/phrases"
+    type: "GET"
+    headers:
+      "Authorization": "Token token=#{window.token}"
+    dataType: "html").done (data, textStatus, jqXHR) ->
+      window.token = jqXHR.getResponseHeader("Authorization")
+      $(document.body).append(window.token + "<br/>")
     return
 $ ->
-  timerId = setInterval(func , 5000)
+  timerId = setInterval(func , 10000)
