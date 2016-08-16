@@ -1,24 +1,7 @@
-# README
+The aim of the task was to create a simple Rails/Coffee application that will pull random phrases from the database and display them one by one (most importantly, that line from the database should be unique on the page).
+Phrase should be loaded with Ajax, database must be pre-populated with data.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Setup:
+git clone source code
+create config/database.yml (application uses Postgre-specific SQL)
+run seeds.rb (it'll take some time)
