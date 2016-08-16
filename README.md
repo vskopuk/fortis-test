@@ -2,6 +2,9 @@ The aim of the task was to create a simple Rails/Coffee application that will pu
 Phrase should be loaded with Ajax, database must be pre-populated with data.
 
 Setup:
+
 git clone source code
+
 create config/database.yml (application uses Postgre-specific SQL)
+
 run seeds.rb (it'll take some time)
