@@ -3,7 +3,9 @@ class HomeController < ApplicationController
 
   def phrases
     response.headers["Authorization"] = @client.auth_token
-    render plain: "OK"
+    phrase = Phrase.where.not("'#{@client.auth_token}' = ANY (clients)").limit(1).order("RANDOM()").first
+    Phrase.where("text LIKE ?", "#{phrase.text}").update_all(["clients = array_append(clients, ?)", @client.auth_token])
+    render plain: phrase.text
   end
 
   private
