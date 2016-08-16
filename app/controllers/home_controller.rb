@@ -13,6 +13,8 @@ class HomeController < ApplicationController
       @client = Client.find_by(auth_token: token)
       if (@client.blank? || @client.created_at < 5.minutes.ago)
         @client = Client.create
+      else
+        @client.touch
       end
     end
   end

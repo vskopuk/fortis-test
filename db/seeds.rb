@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'ffaker'
+
+Phrase.transaction do
+  500000.times do |n|
+    text =  FFaker::BaconIpsum.phrase
+    Phrase.create!(text: text)
+  end
+end
